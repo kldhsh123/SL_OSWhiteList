@@ -1,0 +1,8 @@
+需要环境
+MySQL Nginx  php7.4+
+
+1.部署服务器上
+2.导入目录中的 数据表.sql
+3.修改 db.php 文件为自己的 MySQL 数据库连接信息
+4.修改 send_email.php 文件从111行开始的站点地址和发件信息
+5.修改 api/whlistip.php 中的请求秘钥，默认为秘钥 key
