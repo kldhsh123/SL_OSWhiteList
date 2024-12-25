@@ -7,58 +7,53 @@
 
 namespace FuckYouNorthWood
 {
-    using Exiled.API.Enums;
-    using Exiled.API.Features;
+    using EXILED;
     using FuckYouNorthWood.Whitelist;
 
 #pragma warning disable SA1201
-#pragma warning disable SA1401
+#pragma warning disable SA1401 // Fields should be private
     /// <summary>
     /// 插件主类, 用于加载插件.
     /// </summary>
-    public class Core : Plugin<PluginConfig>
+    public class Core : Plugin
     {
-        /// <inheritdoc/>
-        public override string Author => "Carl Frellett";
-
-        /// <inheritdoc/>
-        public override string Name => "FuckYouNorthWood";
-
-        /// <inheritdoc/>
-        public override PluginPriority Priority => PluginPriority.High;
-
         /// <summary>
         /// 静态接口Config.
         /// </summary>
         internal static PluginConfig PluginConfig = new PluginConfig();
 
-        /// <summary>
-        /// 当插件启动时.
-        /// </summary>
-        public override void OnEnabled()
-        {
-            base.OnEnabled();
+        /// <inheritdoc/>
+        public override string getName => "FuckYouNorthWood";
 
+        /// <summary>
+        /// 关闭.
+        /// </summary>
+        public override void OnDisable()
+        {
+            PlayerJoin joinEvent = null;
+            EXILED.Events.PlayerJoinEvent -= joinEvent.Join;
+        }
+
+        /// <summary>
+        /// 开启.
+        /// </summary>
+        public override void OnEnable()
+        {
             GetIPList.FetchIpList();
             Log.Info("FuckYou140scpsl - 旧版白名单插件 [已加载]");
             Log.Info("FuckYou140scpsl - 旧版白名单更新系统 [已加载]");
 
             PlayerJoin joinEvent = new PlayerJoin();
-            Exiled.Events.Handlers.Player.Joined += joinEvent.Join;
+            EXILED.Events.PlayerJoinEvent += joinEvent.Join;
         }
 
         /// <summary>
-        /// 当插件关闭时.
+        /// 重载.
         /// </summary>
-        public override void OnDisabled()
+        public override void OnReload()
         {
-            base.OnDisabled();
-            Log.Info("FuckYou140scpsl - 旧版白名单插件 [已卸载]");
-
-            PlayerJoin joinEvent = null;
-            Exiled.Events.Handlers.Player.Joined -= joinEvent.Join;
         }
     }
 #pragma warning restore SA1201
-#pragma warning restore SA1401
+#pragma warning restore SA1401 // Fields should be private
 }

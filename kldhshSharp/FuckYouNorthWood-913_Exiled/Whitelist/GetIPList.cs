@@ -11,7 +11,7 @@ namespace FuckYouNorthWood.Whitelist
     using System.Collections.Generic;
     using System.IO;
     using System.Net;
-    using Exiled.API.Features;
+    using EXILED;
     using FuckYouNorthWood.Whitelist.API;
     using MEC;
 
@@ -99,7 +99,7 @@ namespace FuckYouNorthWood.Whitelist
                     Log.Error($"获取 IP 列表时出现错误：{log.Message}");
                 }
 
-                yield return Timing.WaitForSeconds(Core.PluginConfig.Time);
+                yield return Timing.WaitForSeconds(100f);
             }
         }
     }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15DBB390-4F2D-4D0B-93E4-23EB13AF1828}</ProjectGuid>
+    <ProjectGuid>{76525158-C6A1-7843-C597-A836B44AD3D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FuckYouNorthWood</RootNamespace>
-    <AssemblyName>FuckYouNorthWood-1351_Exiled</AssemblyName>
+    <AssemblyName>FuckYouNorthWood-913_Smod</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,36 +48,14 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>bin\x64\Release\FuckYouNorthWood-1351_Exiled.xml</DocumentationFile>
+    <DocumentationFile>bin\x64\Release\FuckYouNorthWood-913_Smod.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\DSPlugin\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\DSPlugin\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Game Home\SCP秘密实验室\SCP 秘密实验室8.0.0版本\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="CommandSystem.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\CommandSystem.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Exiled.API, Version=8.14.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\Exiled.API.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Exiled.Events, Version=8.14.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\Exiled.Events.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Exiled.Loader, Version=8.14.1.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\Exiled.Loader.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="NorthwoodLib, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\NorthwoodLib.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Smod2">
+      <HintPath>..\dependencies\913\Smod\Smod2.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
@@ -103,26 +81,12 @@
     <Reference Include="System.Xml">
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\DSPlugin\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\DSPlugin\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\..\DSPlugin\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExMod.Exiled.8.14.1\lib\net48\YamlDotNet.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\Game Home\SCP秘密实验室\SCP 秘密实验室8.0.0版本\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Plugin\Core.cs" />
-    <Compile Include="Plugin\PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Whitelist\API\Split.cs" />
     <Compile Include="Whitelist\GetIPList.cs" />
