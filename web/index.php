@@ -1,5 +1,16 @@
 <?php
-$user_ip = $_SERVER['REMOTE_ADDR'];
+function getClientIP() {
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
+    } elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+$user_ip = getClientIP();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +18,7 @@ $user_ip = $_SERVER['REMOTE_ADDR'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCP秘密实验室怀旧服白名单IP验证</title>
-    <!-- BY:开朗的火山河123 -->
+     <!-- BY:开朗的火山河123 -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -122,7 +133,7 @@ $user_ip = $_SERVER['REMOTE_ADDR'];
 
         <div class="announcement">
             <strong>注意：</strong> 请确保您输入的邮箱是 <strong>纯数字</strong> 并且是 <strong>@qq.com</strong> 的QQ邮箱。
-            <br>每周仅有两次修改IP机会，如果遇到问题，请添加 <strong>QQ1022140881</strong> 咨询
+            <br>每周仅有三次修改IP机会，如果遇到问题，请添加 <strong>QQ1022140881</strong> 咨询
             <br>如果您使用了代理，请手动输入ip来防止自动获取到您代理的ip地址
         </div>
 
@@ -139,37 +150,42 @@ $user_ip = $_SERVER['REMOTE_ADDR'];
             
             <div class="checkbox-group">
                 <input type="checkbox" name="change_ip" id="change_ip" value="1">
-                <label for="change_ip">我要更改已记录的 IP 地址</label>
+                <label for="change_ip">更改已记录的 IP 地址<span style="color: red;">(请确保ip地址已验证再勾选)</span></label>
             </div>
 
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA3zzVEtQg1g9vfV"></div>    <!-- 改成自己的CF网站秘钥 -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA3zzVEtQg1g9vfV"></div>
             
             <button type="submit" name="action" value="send_code">发送验证码</button>
         </form>
     </div>
 
     <script>
+        // 表单提交前的验证
         document.getElementById("send_form").onsubmit = function(event) {
             var email = document.getElementById("email").value;
             var user_ip = document.getElementById("user_ip").value;
 
+            // 验证邮箱格式
             var emailRegex = /^[0-9]+@qq\.com$/;
             if (!emailRegex.test(email)) {
                 alert('请输入正确的QQ邮箱，且用户名必须为纯数字');
-                event.preventDefault();  
+                event.preventDefault();  // 阻止表单提交
                 return;
             }
 
+            // 验证IP地址格式
             if (user_ip && !/^(\d{1,3}\.){3}\d{1,3}$/.test(user_ip)) {
                 alert('请输入有效的IP地址');
-                event.preventDefault(); 
+                event.preventDefault();  // 阻止表单提交
                 return;
             }
 
+            // 如果IP地址为空，自动填充用户的IP地址
             if (!user_ip) {
                 document.getElementById("user_ip").value = "<?php echo $user_ip; ?>";
             }
 
+            // 添加隐藏字段
             var hiddenEmail = document.createElement("input");
             hiddenEmail.type = "hidden";
             hiddenEmail.name = "hidden_email";
