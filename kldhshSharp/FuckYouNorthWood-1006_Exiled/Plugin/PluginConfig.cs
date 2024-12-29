@@ -20,10 +20,6 @@ namespace FuckYouNorthWood
         [Description("是否启用插件")]
         public bool IsEnabled { get; set; } = true;
 
-        /// <inheritdoc/>
-        [Description("是否启用插件调试")]
-        public bool Debug { get; set; } = false;
-
         /// <summary>
         /// Gets or sets a value indicating whether 是否允许离线玩家加入.
         /// </summary>

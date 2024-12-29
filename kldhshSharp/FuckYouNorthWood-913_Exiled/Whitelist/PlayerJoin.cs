@@ -12,7 +12,6 @@ namespace FuckYouNorthWood
 
     using EXILED;
     using EXILED.Extensions;
-    using FuckYouNorthWood.API;
 
     /// <summary>
     /// 玩家加入事件类.

@@ -1,7 +1,0 @@
-D:\Visual Studio\kldhshSharp\BetterConfigManager\bin\Release\BetterConfigManager.xml
-D:\Visual Studio\kldhshSharp\BetterConfigManager\bin\Release\BetterConfigManager.dll
-D:\Visual Studio\kldhshSharp\BetterConfigManager\bin\Release\BetterConfigManager.pdb
-D:\Visual Studio\kldhshSharp\BetterConfigManager\obj\Release\BetterConfigManager.csproj.AssemblyReference.cache
-D:\Visual Studio\kldhshSharp\BetterConfigManager\obj\Release\BetterConfigManager.csproj.CoreCompileInputs.cache
-D:\Visual Studio\kldhshSharp\BetterConfigManager\obj\Release\BetterConfigManager.dll
-D:\Visual Studio\kldhshSharp\BetterConfigManager\obj\Release\BetterConfigManager.pdb

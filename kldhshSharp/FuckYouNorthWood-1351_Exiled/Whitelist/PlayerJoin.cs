@@ -59,9 +59,9 @@ namespace FuckYouNorthWood
             else
             {
                 Log.Info($"玩家 {ev.Player.Nickname} ({ev.Player.IPAddress}) 无法验证其身份！");
-                ev.Player.SendConsoleMessage("无法验证您的身份！请前往指定网站验证您的身份！", "red");
+                ev.Player.SendConsoleMessage(Core.PluginConfig.DisMessage, "red");
 
-                ev.Player.Disconnect("\n无法验证您的身份！请前往指定网站验证您的身份！");
+                ev.Player.Disconnect(Core.PluginConfig.DisMessage);
             }
         }
     }
