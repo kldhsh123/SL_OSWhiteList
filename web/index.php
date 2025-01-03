@@ -13,12 +13,17 @@ function getClientIP() {
 $user_ip = getClientIP();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
+    <!-- 
+    版权所有 © by:开朗的火山河123
+    二开程序可以添加内容，但是禁止去除本声明。
+    未经明确许可，任何个人或实体不得以任何形式商业利用此程序。
+    github开源地址:https://github.com/kldhsh123/SL_OSWhiteList
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCP秘密实验室怀旧服白名单IP验证</title>
-     <!-- BY:开朗的火山河123 -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -160,32 +165,28 @@ $user_ip = getClientIP();
     </div>
 
     <script>
-        // 表单提交前的验证
         document.getElementById("send_form").onsubmit = function(event) {
             var email = document.getElementById("email").value;
             var user_ip = document.getElementById("user_ip").value;
 
-            // 验证邮箱格式
             var emailRegex = /^[0-9]+@qq\.com$/;
             if (!emailRegex.test(email)) {
                 alert('请输入正确的QQ邮箱，且用户名必须为纯数字');
-                event.preventDefault();  // 阻止表单提交
+                event.preventDefault(); 
                 return;
             }
 
             // 验证IP地址格式
             if (user_ip && !/^(\d{1,3}\.){3}\d{1,3}$/.test(user_ip)) {
                 alert('请输入有效的IP地址');
-                event.preventDefault();  // 阻止表单提交
+                event.preventDefault();  
                 return;
             }
 
-            // 如果IP地址为空，自动填充用户的IP地址
             if (!user_ip) {
                 document.getElementById("user_ip").value = "<?php echo $user_ip; ?>";
             }
 
-            // 添加隐藏字段
             var hiddenEmail = document.createElement("input");
             hiddenEmail.type = "hidden";
             hiddenEmail.name = "hidden_email";
